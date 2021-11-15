@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-    has many :wallets
+    has_many :wallets
 end
