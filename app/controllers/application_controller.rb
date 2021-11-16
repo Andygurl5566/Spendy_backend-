@@ -32,7 +32,7 @@ end
 
 #creates a new bill
 
-post "/bill/:id" do
+post "/bill" do
     make_bill = Bill.create(
     bill_name: params[:bill_name],
     bill_amount: params[:bill_amount],
