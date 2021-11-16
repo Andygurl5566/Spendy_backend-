@@ -1,6 +1,10 @@
 require 'faker'
 puts "🌱 Seeding spices..."
 
+Bill.destroy_all
+User.destroy_all
+Wallet.destroy_all
+
 10.times do 
     user  = User.create(
         name: Faker::Name.name,
