@@ -45,7 +45,7 @@ end
 
 patch "/bill/:id" do
     a_bill = Bill.find(params[:id])
-    bill.update(
+    a_bill.update(
       bill_name: params[:bill_name],
       bill_amount: params[:bill_amount],
       category_name: params[:category_name]
@@ -56,3 +56,53 @@ end
 
 end
 #--------------------------------------------------------------------
+
+#Wallet Routers------------------------------------------------------
+
+#gets all wallets
+get "/wallet" do
+  all_wallets = Wallet.all
+  all_wallets.to_json
+end
+
+#gets a specific wallet
+
+get "/wallet/:id" do
+  a_wallet = Wallet.find(params[:id])
+  a_wallet.to_json
+
+end
+
+#deletes a specific bill
+
+delete "/wallet/:id" do
+  a_wallet = Wallet.find(params[:id])
+  a_wallet.destroy
+  a_wallet.to_json
+end
+
+#creates a new bill
+
+post "/wallet" do
+  make_wallet = Wallet.create(
+    wallet_name: params[:wallet_name]
+  )
+  make_wallet.to_json
+end
+
+# edits a specific wallet
+
+patch "/wallet/:id" do
+  a_wallet = Wallet.find(params[:id])
+  a_wallet.update(
+    wallet_name: params[:wallet_name], 
+  )
+  a_wallet.to_json
+end
+
+
+end
+
+#___________________________________________________________
+
+#User Routers For Aidan_______________________________________________
