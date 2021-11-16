@@ -22,12 +22,7 @@ class ApplicationController < Sinatra::Base
 
 end
 
-  #gets all bills from a specific wallet
-
-  get "/wallet/bills/:id" do
-    wallet_bills = Wallet.find(params[:id]).bills
-    wallet_bills.to_json
-  end
+  
 #deletes a specific bill
 
 delete "/bill/:id" do
@@ -85,10 +80,22 @@ end
 get "/wallet/:id" do
   a_wallet = Wallet.find(params[:id])
   a_wallet.to_json
-
 end
 
-#deletes a specific bill
+get "/wallet/total/:id" do
+  a_wallet = Wallet.find(params[:id])
+  a_wallet.total_amount.to_json
+end
+
+#gets all bills from a specific wallet
+
+  get "/wallet/bills/:id" do
+    wallet_bills = Wallet.find(params[:id]).bills
+    wallet_bills.to_json
+
+  end
+
+#deletes a specific wallet
 
 delete "/wallet/:id" do
   a_wallet = Wallet.find(params[:id])
@@ -96,7 +103,7 @@ delete "/wallet/:id" do
   a_wallet.to_json
 end
 
-#creates a new bill
+#creates a new wallet
 
 post "/wallet" do
   make_wallet = Wallet.create(
