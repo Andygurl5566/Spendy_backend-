@@ -17,6 +17,7 @@ end
 
 wallet = Wallet.create(
     wallet_name: Faker::Company.name,
+    amount: Faker::Commerce.price, 
     user_id: rand(1..10) 
 )
 
@@ -28,6 +29,19 @@ end
         bill_name: Faker::Commerce.department ,
         bill_amount: Faker::Commerce.price ,
         category_name: Faker::Commerce.product_name ,
+
+        bill_name1: Faker::Commerce.department ,
+        bill_amount1: Faker::Commerce.price ,
+        category_name1: Faker::Commerce.product_name ,
+
+        bill_name2: Faker::Commerce.department ,
+        bill_amount2: Faker::Commerce.price ,
+        category_name2: Faker::Commerce.product_name ,
+
+        bill_name3: Faker::Commerce.department ,
+        bill_amount3: Faker::Commerce.price ,
+        category_name3: Faker::Commerce.product_name, 
+
         wallet_id: rand(1..10)
     )
 end

@@ -1,3 +1,4 @@
 class Wallet < ActiveRecord::Base
-     belongs_to :user   
-end
+    belongs_to :user 
+    has_many :bills 
+end  
