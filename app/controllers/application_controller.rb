@@ -123,6 +123,7 @@ post "/user" do
     occupation: params[:occupation],
     logged_in: params[:logged_in]
   )
+  make_user.to_json
 end
 
 patch "/user/:id" do
@@ -132,5 +133,6 @@ patch "/user/:id" do
     logged_in: params[:logged_in]
     # logged_in: !logged_in
   )
+  a_user.to_json
 end
 end
