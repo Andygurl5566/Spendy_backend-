@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_205004) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "occupation"
+    t.boolean "logged_in"
   end
 
   create_table "wallets", force: :cascade do |t|
