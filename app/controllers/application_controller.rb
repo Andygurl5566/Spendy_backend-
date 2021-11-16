@@ -22,6 +22,12 @@ class ApplicationController < Sinatra::Base
 
 end
 
+  #gets all bills from a specific wallet
+
+  get "/wallet/bills/:id" do
+    wallet_bills = Wallet.find(params[:id]).bills
+    wallet_bills.to_json
+  end
 #deletes a specific bill
 
 delete "/bill/:id" do
