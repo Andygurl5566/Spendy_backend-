@@ -106,3 +106,35 @@ end
 #___________________________________________________________
 
 #User Routers For Aidan_______________________________________________
+
+get "/user" do
+  a_user = User.all
+  a_user.to_json
+end
+
+get "/user/:id" do
+  a_user = User.find(params[:id])
+  a_user.to_json
+end
+
+delete "/user/:id" do
+  a_user.find(params[:id])
+  a_user.destroy
+  a_user.to_json
+end
+
+post "/user" do
+  make_user = User.create(
+    name: params[:name]
+    occupation: params[:occupation]
+    logged_in: false
+  )
+end
+
+patch "/user/:id" do
+  a_user = User.find(params[:id])
+  a_user.update(
+    name: params[:name]
+    # logged_in: !logged_in
+  )
+end
