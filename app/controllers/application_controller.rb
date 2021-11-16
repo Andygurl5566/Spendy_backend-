@@ -52,9 +52,6 @@ patch "/bill/:id" do
     )
     a_bill.to_json
 end
-
-
-end
 #--------------------------------------------------------------------
 
 #Wallet Routers------------------------------------------------------
@@ -95,12 +92,9 @@ end
 patch "/wallet/:id" do
   a_wallet = Wallet.find(params[:id])
   a_wallet.update(
-    wallet_name: params[:wallet_name], 
+    wallet_name: params[:wallet_name] 
   )
   a_wallet.to_json
-end
-
-
 end
 
 #___________________________________________________________
@@ -125,16 +119,18 @@ end
 
 post "/user" do
   make_user = User.create(
-    name: params[:name]
-    occupation: params[:occupation]
-    logged_in: false
+    name: params[:name],
+    occupation: params[:occupation],
+    logged_in: params[:logged_in]
   )
 end
 
 patch "/user/:id" do
   a_user = User.find(params[:id])
   a_user.update(
-    name: params[:name]
+    name: params[:name],
+    logged_in: params[:logged_in]
     # logged_in: !logged_in
   )
+end
 end
