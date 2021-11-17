@@ -35,9 +35,10 @@ end
 
 post "/bill" do
     make_bill = Bill.create(
-    bill_name: params[:bill_name],
-    bill_amount: params[:bill_amount],
-    category_name: params[:category_name]
+      bill_name: params[:bill_name],
+      bill_amount: params[:bill_amount],
+      category_name: params[:category_name],
+      wallet_id: params[:wallet_id]
     )
     make_bill.to_json
 end
