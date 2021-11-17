@@ -50,19 +50,7 @@ patch "/bill/:id" do
     a_bill.update(
       bill_name: params[:bill_name],
       bill_amount: params[:bill_amount],
-      category_name: params[:category_name],
-
-      bill_name1: params[:bill_name1],
-      bill_amount1: params[:bill_amount1],
-      category_name1: params[:category_name1],
-
-      bill_name2: params[:bill_name2],
-      bill_amount2: params[:bill_amount2],
-      category_name2: params[:category_name2],
-
-      bill_name3: params[:bill_name3],
-      bill_amount3: params[:bill_amount3],
-      category_name3: params[:category_name3]
+      category_name: params[:category_name]
     )
     a_bill.to_json
 end
