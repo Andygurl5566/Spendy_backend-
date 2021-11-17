@@ -163,3 +163,14 @@ patch "/user/:id" do
   a_user.to_json
 end
 end
+
+# post to add the bill
+
+# post '/form' do
+#   make_bill_copy = Bill.create(
+#     bill_name: params[:bill_name],
+#     bill_amount: params[:bill_amount],
+#     category_name: params[:category_name]
+#     )
+#     make_bill_copy.to_json
+# end
