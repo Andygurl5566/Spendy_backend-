@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
  # Bill Routers---------------------------------------------
- #We can probably break these into different controllers
+ 
  
   get "/" do
     { message: "Howdy I'm working! 🚀🚀🚀 Please don't break me " }.to_json
@@ -21,7 +21,6 @@ class ApplicationController < Sinatra::Base
     a_bill.to_json
 
 end
-
   
 #deletes a specific bill
 
@@ -54,7 +53,8 @@ patch "/bill/:id" do
     )
     a_bill.to_json
 end
-#--------------------------------------------------------------------
+
+
 
 #Wallet Routers------------------------------------------------------
 
@@ -113,9 +113,7 @@ patch "/wallet/:id" do
   a_wallet.to_json
 end
 
-#___________________________________________________________
-
-#User Routers For Aidan_______________________________________________
+#User Routers---------------------------------------------
 
 get "/user" do
   a_user = User.all
@@ -133,15 +131,6 @@ delete "/user/:id" do
   a_user.to_json
 end
 
-post "/user" do
-  make_user = User.create(
-    name: params[:name],
-    occupation: params[:occupation],
-    logged_in: params[:logged_in]
-  )
-  make_user.to_json
-end
-
 patch "/user/:id" do
   a_user = User.find(params[:id])
   a_user.update(
@@ -152,14 +141,3 @@ patch "/user/:id" do
   a_user.to_json
 end
 end
-
-# post to add the bill
-
-# post '/form' do
-#   make_bill_copy = Bill.create(
-#     bill_name: params[:bill_name],
-#     bill_amount: params[:bill_amount],
-#     category_name: params[:category_name]
-#     )
-#     make_bill_copy.to_json
-# end
