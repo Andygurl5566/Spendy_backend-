@@ -5,20 +5,25 @@ Bill.destroy_all
 User.destroy_all
 Wallet.destroy_all
 
-10.times do 
+
+User.create( name: "Aidan", occupation: "FullstackDevelopder Extrodinaire", logged_in: false)
+9.times do 
     user  = User.create(
         name: Faker::Name.name,
-        occupation: Faker::Job.title
+        occupation: Faker::Job.title,
+        logged_in: false
     )
 end
 
 
-10.times do 
+Wallet.create( wallet_name: "Aidan's Wallet",  amount: rand(800..3000), user_id: 1)
 
+9.times do 
 wallet = Wallet.create(
     wallet_name: Faker::Company.name,
-    amount: Faker::Commerce.price, 
-    user_id: rand(1..10) 
+    # amount: Faker::Commerce.price, 
+    amount: rand(800..3000),
+    user_id: rand(2..10) 
 )
 
 end
