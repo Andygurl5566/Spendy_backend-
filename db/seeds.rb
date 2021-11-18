@@ -6,12 +6,12 @@ User.destroy_all
 Wallet.destroy_all
 
 
-User.create( name: "Aidan", occupation: "FullstackDevelopder Extrodinaire", logged_in: false)
+User.create( name: "Aidan", occupation: "FullstackDevelopder Extrodinaire", password: "")
 9.times do 
     user  = User.create(
         name: Faker::Name.name,
         occupation: Faker::Job.title,
-        logged_in: false
+        password: ""
     )
 end
 

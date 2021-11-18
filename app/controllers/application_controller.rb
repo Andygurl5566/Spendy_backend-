@@ -135,9 +135,17 @@ patch "/user/:id" do
   a_user = User.find(params[:id])
   a_user.update(
     name: params[:name],
-    logged_in: params[:logged_in]
+    password: params[:password]
     # logged_in: !logged_in
   )
   a_user.to_json
+end
+
+post "/user/login" do
+  user = User.create(
+    name: params[:name],
+    password: params[:password]
+  )
+  user.to_json
 end
 end
