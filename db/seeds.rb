@@ -16,7 +16,7 @@ User.create( name: "Aidan", occupation: "FullstackDevelopder Extrodinaire", logg
 end
 
 
-Wallet.create( wallet_name: "Aidan's Wallet",  amount: rand(800..3000), user_id: 1)
+Wallet.create( wallet_name: "Aidan's Wallet",  amount: rand(70000..90000), user_id: 1)
 
 9.times do 
 wallet = Wallet.create(
