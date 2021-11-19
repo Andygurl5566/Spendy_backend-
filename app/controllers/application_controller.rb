@@ -141,6 +141,10 @@ patch "/user/:id" do
   a_user.to_json
 end
 
+
+
+
+
 post "/user/login" do
   user = User.create(
     name: params[:name],
@@ -148,5 +152,16 @@ post "/user/login" do
   )
   user.to_json
 end
+
+
+
+
+# Grabs a particular users and their wallet
+get "/user/wallets/:id" do
+  userWallet = User.find(params[:id])
+  userWallet.to_json(include: :wallets)
+
+end
+
 
 end

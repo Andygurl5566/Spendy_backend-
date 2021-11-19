@@ -6,18 +6,20 @@ User.destroy_all
 Wallet.destroy_all
 
 
-User.create( name: "Aidan", occupation: "FullstackDevelopder Extrodinaire", password: "password")
-
-
+User.create( name: "Aidan", occupation: "FullstackDeveloper Extrodinaire", password: "password")
+User.create( name: "Andrea", occupation: "FullstackDeveloper Extrodinaire", password: "password")
+User.create( name: "Yeison", occupation: "FullstackDeveloper Extrodinaire", password: "password")
 
 Wallet.create( wallet_name: "Aidan's Wallet",  amount: rand(70000..90000), user_id: 1)
+Wallet.create( wallet_name: "Andrea's Wallet",  amount: rand(70000..90000), user_id: 2)
+Wallet.create( wallet_name: "Yeison's Wallet",  amount: rand(70000..90000), user_id: 3)
 
-9.times do 
+7.times do 
 wallet = Wallet.create(
     wallet_name: Faker::Company.name,
     # amount: Faker::Commerce.price, 
     amount: rand(800..3000),
-    user_id: rand(2..10) 
+    user_id: rand(4..10) 
 )
 
 end
