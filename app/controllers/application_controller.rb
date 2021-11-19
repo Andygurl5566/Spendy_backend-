@@ -157,11 +157,38 @@ end
 
 
 # Grabs a particular users and their wallet
-get "/user/wallets/:id" do
-  userWallet = User.find(params[:id])
-  userWallet.to_json(include: :wallets)
 
+get "/user/wallets/bills/:username" do
+  user = User.find_by(name: params[:username])
+  user.to_json(:include => {:wallets => {:include => :bills}})
 end
 
+
+get "/user/wallets/:username" do
+  userWallet = User.find_by(name: params[:username])
+  userWallet.to_json(include: :wallets)
+end
+
+get "/user/wallets/bills/total/:username" do
+  user = User.find_by(name: params[:username])
+  wallet = Wallet.find_by(user_id: user.id)
+  wallet.total_amount.to_json
+end
+
+post "/user/wallets/bills/:username" do
+  bill = Bill.create(
+    bill_name: params[:bill_name], 
+    bill_amount: params[:bill_amount],
+    category_name: params[:category_name],
+    wallet_id: params[:wallet_id]
+  )
+  bill.to_json
+end
+
+# user = User.create(
+#     name: params[:name],
+#     password: params[:password]
+#   )
+#   user.to_json
 
 end
