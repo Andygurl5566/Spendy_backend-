@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_205004) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "occupation"
     t.string "password"
   end
 

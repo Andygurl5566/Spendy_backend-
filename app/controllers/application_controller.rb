@@ -94,12 +94,14 @@ end
 
 #creates a new wallet
 
-post "/wallet" do
-  make_wallet = Wallet.create(
+post "/user/wallets/:username" do
+  user = User.find_by(name: params[:username])
+  wallet = Wallet.create(
     wallet_name: params[:wallet_name],
-    amount: params[:amount]
+    amount: params[:amount],
+    user_id: user.id
   )
-  make_wallet.to_json
+  wallet.to_json
 end
 
 # edits a specific wallet
